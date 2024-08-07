@@ -1,0 +1,1 @@
+docs/project_structure.txt filter=lfs diff=lfs merge=lfs -text
