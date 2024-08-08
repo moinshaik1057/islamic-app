@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
 
+
 const PrayerTimesCard = () => {
     const dispatch = useDispatch();
     const [location, setLocation] = useState({ lat: null, lon: null });

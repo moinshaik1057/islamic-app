@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchIslamicDate = createAsyncThunk(
     'islamicDate/fetchIslamicDate',
     async () => {
-        const response = await fetch('http://api.aladhan.com/v1/gToH');
+        const response = await fetch('https://api.aladhan.com/v1/gToH');
         const data = await response.json();
         return data.data.hijri;
     }

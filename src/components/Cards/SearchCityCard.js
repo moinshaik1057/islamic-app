@@ -16,7 +16,7 @@ const SearchCityCard = () => {
         setQuery(value);
 
         if (value.length > 2) {
-            const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}`);
+            const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}`);
             setSuggestions(response.data);
         } else {
             setSuggestions([]);
@@ -36,8 +36,8 @@ const SearchCityCard = () => {
             <div className="card-body p-0">
                 {/* <h5 className="card-title">Search City</h5> */}
 
-                <div class="search-container">
-                <span class="search-icon-right">&#128269;</span>
+                <div className="search-container">
+                <span className="search-icon-right">&#128269;</span>
                     <input
                         type="text"
                         className="search-input-right form-control"
