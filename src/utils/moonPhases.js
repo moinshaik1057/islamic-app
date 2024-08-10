@@ -39,7 +39,6 @@ import waningCrescentImage from '../assets/moon-phases/waning-crescent.png';
 
 const moonPhaseIcons = {
     0: newMoonImage,  // New moon
-    0.12: firstQuarterImage,  // First quarter
     0.25: firstQuarterImage,  // First quarter
     0.5: fullMoonImage,  // Full moon
     0.75: lastQuarterImage,  // Last quarter

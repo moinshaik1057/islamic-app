@@ -1,90 +1,14 @@
-// import React from 'react';
-// import { useSelector } from 'react-redux';
-// import moonPhaseIcons from '../../utils/moonPhases';
-
-// const WeatherCard = () => {
-//     const weather = useSelector((state) => state.weather);
-
-//     if (!weather || !weather.current || !weather.daily || weather.daily.length < 2) return null;
-
-//     const dayData = weather.daily[0];
-//     const { temp, feels_like, weather: weatherDetails } = weather.current;
-//     const { moonrise, moonset, moon_phase } = dayData;
-
-//     const formatTime = (timestamp) => {
-//         return timestamp ? new Date(timestamp * 1000).toLocaleTimeString() : 'N/A';
-//     };
-
-//     const getMoonPhaseIcon = (phase) => {
-//         return moonPhaseIcons[phase] || moonPhaseIcons[0.5]; // Fallback to full moon if phase not found
-//     };
-
-//     const roundTemperature = (temp) => {
-//         return Math.round(temp);
-//     };
-
-//     return (
-//         <div className="card w-100">
-//             <div className="card-body">
-//                 <div className="row">
-//                     <div className="col-4">
-//                         <div className="d-flex">
-//                             {weatherDetails && weatherDetails[0] && (
-//                                 <img src={`https://openweathermap.org/img/wn/${weatherDetails[0].icon}.png`} alt="weather icon" />
-//                             )}
-//                             <h6 className="align-self-center text-center">{roundTemperature(temp)}℃ </h6>
-//                         </div>
-//                         <p className="font-sm-2 mb-0 align-self-center">Feels like: {roundTemperature(feels_like)}℃</p>
-//                     </div>
-//                     <div className="col-8">
-//                         <div className="row">
-//                             <div className="col-3 align-self-center">
-//                                 <img src={getMoonPhaseIcon(moon_phase)} alt="moon phase icon" />
-//                             </div>
-//                             <div className="col-9 font-sm">
-//                                 <div className="table-responsive">
-//                                     <table className="table table-sm table-borderless mb-0 font-sm-2">
-//                                         <tbody className="fw-semibold">
-//                                             <tr>
-//                                                 <th>Moonrise</th>
-//                                                 <td>:</td>
-//                                                 <td>{formatTime(moonrise)}</td>
-//                                             </tr>
-//                                             <tr>
-//                                                 <th>Moonset</th>
-//                                                 <td>:</td>
-//                                                 <td>{formatTime(moonset)}</td>
-//                                             </tr>
-//                                             <tr>
-//                                                 <th>Moon Phase</th>
-//                                                 <td>:</td>
-//                                                 <td>{moon_phase !== null && moon_phase !== undefined ? moon_phase : 'N/A'}</td>
-//                                             </tr>
-//                                         </tbody>
-//                                     </table>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default WeatherCard;
-
 import React from 'react';
 import { useSelector } from 'react-redux';
 import moonPhaseIcons from '../../utils/moonPhases';
 
-const WeatherCard = () => {
+const Galaxy = () => {
     const weather = useSelector((state) => state.weather);
 
     if (!weather || !weather.current || !weather.daily || weather.daily.length < 2) return null;
 
     const dayData = weather.daily[0];
-    const { temp, feels_like } = weather.current;
+    const { temp, feels_like, weather: weatherDetails } = weather.current;
     const { moonrise, moonset, moon_phase } = dayData;
 
     const formatTime = (timestamp) => {
@@ -115,9 +39,9 @@ const WeatherCard = () => {
                 <div className="row">
                     <div className="col-4">
                         <div className="d-flex">
-                            {/* {weatherDetails && weatherDetails[0] && (
+                            {weatherDetails && weatherDetails[0] && (
                                 <img src={`https://openweathermap.org/img/wn/${weatherDetails[0].icon}.png`} alt="weather icon" />
-                            )} */}
+                            )}
                             <h6 className="align-self-center text-center">{roundTemperature(temp)}℃ </h6>
                         </div>
                         <p className="font-sm-2 mb-0 align-self-center">Feels like: {roundTemperature(feels_like)}℃</p>
@@ -158,4 +82,4 @@ const WeatherCard = () => {
     );
 };
 
-export default WeatherCard;
+export default Galaxy;

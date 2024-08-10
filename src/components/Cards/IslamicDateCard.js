@@ -1,68 +1,18 @@
-// import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchPrayerTimes } from '../../redux/prayerSlice';
-// import { fetchIslamicDate } from '../../redux/islamicDateSlice';
-
-// const IslamicDateCard = () => {
-//     const weather = useSelector((state) => state.weather);
-
-//     const dispatch = useDispatch();
-//     const [location, setLocation] = useState({ lat: null, lon: null });
-
-//     const today = new Date();
-//     const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
-//     const islamicDate = useSelector((state) => state.islamicDate.date);
-//     const islamicDateLoading = useSelector((state) => state.islamicDate.loading);
-//     const islamicDateError = useSelector((state) => state.islamicDate.error);
-
-//     useEffect(() => {
-//         navigator.geolocation.getCurrentPosition(
-//             (position) => {
-//                 const { latitude, longitude } = position.coords;
-//                 setLocation({ lat: latitude, lon: longitude });
-//             },
-//             (error) => {
-//                 console.error('Error getting geolocation:', error);
-//             }
-//         );
-//     }, []);
-
-//     useEffect(() => {
-//         if (location.lat && location.lon) {
-//             dispatch(fetchPrayerTimes({ lat: location.lat, lon: location.lon }));
-//             dispatch(fetchIslamicDate());
-//         }
-//     }, [location, dispatch]);
-
-//     if (islamicDateLoading) return <div>Loading Islamic date...</div>;
-//     if (islamicDateError) return <div>Error fetching Islamic date: {islamicDateError}</div>;
-
-//     return (
-//         <div className="card p-2 rounded-1 w-100 mb-1" style={{ fontSize: 10 }}>
-//             {islamicDate && (
-//                 <div className='d-flex justify-content-between fw-semibold'>
-//                     <div>{islamicDate.day} {islamicDate.month.en} {islamicDate.year}</div>
-//                     <div> {weather.cityName} </div>
-//                     <div> {formattedDate} </div>
-                    
-//                 </div>
-//             )}
-//         </div>
-//     );
-// };
-
-// export default IslamicDateCard;
-
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
+import { MdLocationPin } from "react-icons/md";
+import { FaCalendarDays } from "react-icons/fa6";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 const IslamicDateCard = () => {
     const weather = useSelector((state) => state.weather);
     const dispatch = useDispatch();
     const [location, setLocation] = useState({ lat: null, lon: null });
     const [geoError, setGeoError] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     const today = new Date();
     const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
@@ -80,7 +30,11 @@ const IslamicDateCard = () => {
                 },
                 (error) => {
                     console.error('Error getting geolocation:', error);
-                    setGeoError(`Error getting geolocation: ${error.message} (Code: ${error.code})`);
+                    if (error.code === 1) { // User denied geolocation
+                        setShowModal(true);
+                    } else {
+                        setGeoError(`Error getting geolocation: ${error.message} (Code: ${error.code})`);
+                    }
                 }
             );
         } else if (window.location.protocol !== 'https:') {
@@ -97,19 +51,41 @@ const IslamicDateCard = () => {
         }
     }, [location, dispatch]);
 
+    const handleModalClose = () => setShowModal(false);
+    // const handleEnableLocation = () => {
+    //     handleModalClose();
+    //     window.open('settings://location', '_blank');
+    // };
+
     if (islamicDateLoading) return <div>Loading Islamic date...</div>;
     if (islamicDateError) return <div>Error fetching Islamic date: {islamicDateError}</div>;
 
     return (
-        <div className="card p-2 rounded-1 w-100 mb-1" style={{ fontSize: 10 }}>
+        <div className="card p-2 rounded-1 w-100 mb-1" style={{ fontSize: 12 }}>
             {geoError && <div className="alert alert-warning">{geoError}</div>}
             {islamicDate && (
                 <div className='d-flex justify-content-between fw-semibold'>
-                    <div>{islamicDate.day} {islamicDate.month.en} {islamicDate.year}</div>
-                    <div> {weather.cityName} </div>
-                    <div> {formattedDate} </div>
+                    <div className='d-flex'><div className='align-self-center'><FaCalendarDays /></div> <span className='d-inline-block pt-1 ms-1'> {islamicDate.day} {islamicDate.month.en} {islamicDate.year} </span></div>
+                    <div className='d-flex'><div className='align-self-center'><MdLocationPin /></div> <span className='d-inline-block pt-1 ms-1'> {weather.cityName} </span></div>
+                    <div className='d-flex'><div className='align-self-center'><FaCalendarDays /></div> <span className='d-inline-block pt-1 ms-1'> {formattedDate} </span></div>
                 </div>
             )}
+            <Modal show={showModal} onHide={handleModalClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Location Access Required</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Please enable location services on your device to get accurate prayer times and Islamic date information.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleModalClose}>
+                        Cancel
+                    </Button>
+                    {/* <Button variant="primary" onClick={handleEnableLocation}>
+                        Enable Location
+                    </Button> */}
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };
