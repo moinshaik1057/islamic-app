@@ -5,7 +5,8 @@ import SearchCityCard from './components/Cards/SearchCityCard';
 import PrayerTimesCard from './components/Cards/PrayerTimesCard';
 import IslamicDateCard from './components/Cards/IslamicDateCard';
 import Galaxy from './components/Cards/Galaxy';
-import MoonInfo from './components/Cards/MoonInfo';
+//import MoonInfo from './components/Cards/MoonInfo';
+import CounterCard from './components/Cards/CounterCard.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,10 +28,11 @@ const App = () => {
                     <IslamicDateCard />
                     <PrayerTimesCard /> 
                     <Galaxy />
+                    <CounterCard /> 
                 </div>
                 <div className="col-sm-4">
 
-                    <MoonInfo />    
+                    
                 </div>
                 <div className="col-sm-4">
                     
