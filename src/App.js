@@ -7,6 +7,7 @@ import IslamicDateCard from './components/Cards/IslamicDateCard';
 import Galaxy from './components/Cards/Galaxy';
 //import MoonInfo from './components/Cards/MoonInfo';
 import CounterCard from './components/Cards/CounterCard.js';
+import MenuCard from './components/Cards/MenuCard.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -29,6 +30,7 @@ const App = () => {
                     <PrayerTimesCard /> 
                     <Galaxy />
                     <CounterCard /> 
+                    <MenuCard />
                 </div>
                 <div className="col-sm-4">
 

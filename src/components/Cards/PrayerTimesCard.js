@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
 
-
 const PrayerTimesCard = () => {
     const dispatch = useDispatch();
     const [location, setLocation] = useState({ lat: null, lon: null });
@@ -12,7 +11,8 @@ const PrayerTimesCard = () => {
     const loading = useSelector((state) => state.prayer.loading);
     const error = useSelector((state) => state.prayer.error);
     //const cityName = useSelector((state) => state.weather.cityName);
-    //const [ishraaqTime, setIshraaqTime] = useState(null);
+    const [ishraaqTime, setIshraaqTime] = useState(null);
+    const [chaasthTime, setChaasthTime] = useState(null);
 
     //const islamicDate = useSelector((state) => state.islamicDate.date);
     const islamicDateLoading = useSelector((state) => state.islamicDate.loading);
@@ -39,21 +39,45 @@ const PrayerTimesCard = () => {
             const [hours, minutes] = prayerTimes.Sunrise.split(':').map(Number);
             let sunriseDate = new Date();
             sunriseDate.setHours(hours, minutes);
+    
+            // Add 10 minutes to the sunrise time to calculate Ishraaq time
+            sunriseDate.setMinutes(sunriseDate.getMinutes() + 20);
+    
+            const newHours = sunriseDate.getHours().toString().padStart(2, '0');
+            const newMinutes = sunriseDate.getMinutes().toString().padStart(2, '0');
+            const ishraaq = `${newHours}:${newMinutes}`;
 
-            sunriseDate.setMinutes(sunriseDate.getMinutes() + 10);
-
-            //const newHours = sunriseDate.getHours().toString().padStart(2, '0');
-            //const newMinutes = sunriseDate.getMinutes().toString().padStart(2, '0');
-            //setIshraaqTime(`${newHours}:${newMinutes}`);
+            // Add 100 minutes to the sunrise time to calculate Ishraaq time
+            sunriseDate.setMinutes(sunriseDate.getMinutes() + 100);
+    
+            const newHoursChasth = sunriseDate.getHours().toString().padStart(2, '0');
+            const newMinutesChasth = sunriseDate.getMinutes().toString().padStart(2, '0');
+            const chaasth = `${newHoursChasth}:${newMinutesChasth}`;
+    
+            // Convert to AM/PM format
+            const ishraaqFormatted = convertToAMPM(ishraaq);
+            const chaasthFormatted = convertToAMPM(chaasth);
+    
+            // Set the formatted Ishraaq time in the state
+            setIshraaqTime(ishraaqFormatted);
+            setChaasthTime(chaasthFormatted);
         }
     }, [prayerTimes]);
+
+    const convertToAMPM = (time) => {
+        const [hours, minutes] = time.split(':').map(Number);
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const convertedHours = hours % 12 || 12;
+        return `${convertedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+    };
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (loading || islamicDateLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (islamicDateError) return <div>Error: {islamicDateError}</div>;
-
+    console.log(prayerTimes);
+    //console.log(ishraaqTime);
     return (
         <>
 
@@ -69,15 +93,23 @@ const PrayerTimesCard = () => {
             <div className="card w-100 p-0 mb-1">
             {/* <h5 className="card-title">Prayer Times {cityName}</h5> */}
             
-            
                 
                 {prayerTimes ? (
                 <div className="table-responsive rounded p-1">
-                    <table className="table table-sm table-borderless rounded-2 mb-0 text-center font-sm">
-                        <thead>
+                    <table className="table table-sm table-borderless table-secondar rounded-2 mb-0 text-center font-sm">
+                    <thead>
+                            <tr>
+                                {/* <th className='bg-warning'>Tahajjud</th>
+                                <td>{convertToAMPM(prayerTimes.Lastthird)}</td> */}
+                                <th>Ishraaq</th>
+                                <td colSpan='2'>{ishraaqTime}</td>
+                                <th>Chaasth</th>
+                                <td colSpan='2'>{chaasthTime}</td>
+                            </tr></thead>
+                        <thead className='bg-secondary'>
                             <tr>
                                 <th>Fazr</th>
-                                <th><a className='link-offset-3 text-reset'>Sunrise</a></th>
+                                <th><a href='home' className='link-offset-3 text-reset'>Sunrise</a></th>
                                 <th>Zohar</th>
                                 <th>Asr</th>
                                 <th>Magrib</th>
@@ -85,13 +117,18 @@ const PrayerTimesCard = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='fw-semibold'>
-                                <td>{prayerTimes.Fajr}</td>
-                                <td className='fw-bold'>{prayerTimes.Sunrise}</td>
-                                <td>{prayerTimes.Dhuhr}</td>
-                                <td>{prayerTimes.Asr}</td>
-                                <td>{prayerTimes.Maghrib}</td>
-                                <td>{prayerTimes.Isha}</td>
+                            <tr className="fw-semibold">
+                                <td>{convertToAMPM(prayerTimes.Fajr)}</td>
+                                <td className="fw-bold">{convertToAMPM(prayerTimes.Sunrise)}</td>
+                                <td>{convertToAMPM(prayerTimes.Dhuhr)}</td>
+                                <td>{convertToAMPM(prayerTimes.Asr)}</td>
+                                <td>{convertToAMPM(prayerTimes.Maghrib)}</td>
+                                <td>{convertToAMPM(prayerTimes.Isha)}</td>
+                            </tr>
+                            <tr>
+                                <td colSpan='6' className='text-bg-warning fw-medium'>
+                                    Tahajjud timing will start from 1 hour after Isha to 30 minutes Before fazr
+                                </td>
                             </tr>
                         </tbody>
                     </table>

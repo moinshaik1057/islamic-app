@@ -1,48 +1,158 @@
+// import React, { useState } from 'react';
+// import { BsFillPatchPlusFill } from "react-icons/bs";
+// import { BsFillPatchMinusFill } from "react-icons/bs";
+// import { BsArrowCounterclockwise } from "react-icons/bs";
+// import { MdFullscreen } from "react-icons/md";
+// import FullscreenCounterCard from './FullscreenCounterCard';
+
+// const CounterCard = () => {
+//     const [count, setCount] = useState(0);
+//     const [isFullscreen, setIsFullscreen] = useState(false);
+
+//     const increment = () => setCount(count + 1);
+//     const decrement = () => setCount(count - 1);
+//     const reset = () => setCount(0);
+
+//     const enterFullscreen = () => {
+//         setIsFullscreen(true);
+//         document.documentElement.requestFullscreen();
+//     };
+
+//     const exitFullscreen = () => {
+//         setIsFullscreen(false);
+//         if (document.fullscreenElement) {
+//             document.exitFullscreen();
+//         }
+//     };
+
+//     const handleScreenClick = () => {
+//         if (isFullscreen) {
+//             increment();
+//         }
+//     };
+
+//     return (
+//         <>
+//             {isFullscreen ? (
+//                 <div onClick={handleScreenClick}>
+//                     <FullscreenCounterCard
+//                         count={count}
+//                         increment={increment}
+//                         decrement={decrement}
+//                         reset={reset}
+//                         exitFullscreen={exitFullscreen}
+//                     />
+//                 </div>
+//             ) : (
+//                 <div className="card w-100">
+//                     <div className="card-body">
+//                         <h6 className="card-title d-flex justify-content-between">
+//                             <span>Tasbeeh Counter</span>
+//                             <span onClick={enterFullscreen}><MdFullscreen /></span>
+//                         </h6>
+//                         <div className="d-flex justify-content-between">
+//                             <button className="border-0 bg-transparent fs-4 text-warning" onClick={decrement}>
+//                                 <BsFillPatchMinusFill />
+//                             </button>
+//                             <p className="card-text w-25 align-self-center mb-0 fw-bold">{count}/100</p>
+//                             <button className="border-0 bg-transparent fs-4 text-success" onClick={increment}>
+//                                 <BsFillPatchPlusFill />
+//                             </button>
+//                             <button className="border-0 bg-transparent fs-4 text-danger" onClick={reset}>
+//                                 <BsArrowCounterclockwise />
+//                             </button>
+//                         </div>
+//                     </div>
+//                 </div>
+//             )}
+//         </>
+//     );
+// };
+
+// export default CounterCard;
+
 import React, { useState } from 'react';
 import { BsFillPatchPlusFill } from "react-icons/bs";
 import { BsFillPatchMinusFill } from "react-icons/bs";
 import { BsArrowCounterclockwise } from "react-icons/bs";
-
+import { MdFullscreen } from "react-icons/md";
+import FullscreenCounterCard from './FullscreenCounterCard';
 
 const CounterCard = () => {
-    // Initialize the counter state
     const [count, setCount] = useState(0);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
 
-    // Handler to increment the counter
     const increment = () => {
-        setCount(count + 1);
+        setCount(prevCount => prevCount + 1);
+        triggerAnimation();
     };
 
-    // Handler to decrement the counter
-    const decrement = () => {
-        setCount(count - 1);
+    const decrement = () => setCount(prevCount => prevCount - 1);
+    const reset = () => setCount(0);
+
+    const enterFullscreen = () => {
+        setIsFullscreen(true);
+        document.documentElement.requestFullscreen();
     };
 
-    // Handler to reset the counter
-    const reset = () => {
-        setCount(0);
+    const exitFullscreen = () => {
+        setIsFullscreen(false);
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        }
+    };
+
+    const handleScreenClick = () => {
+        if (isFullscreen) {
+            increment();
+        }
+    };
+
+    const triggerAnimation = () => {
+        setIsAnimating(true);
+        setTimeout(() => {
+            setIsAnimating(false);
+        }, 300); // Match the duration of the CSS animation
     };
 
     return (
-        <div className="card w-100">
-            <div className="card-body">
-                <h6 className="card-title">Tasbeeh Counter</h6>
-                
-                <div className="d-flex justify-content-between">
-                    <button className="border-0 bg-transparent fs-4 text-warning" onClick={decrement}>
-                        <BsFillPatchMinusFill />
-                    </button>
-                    <p className="card-text w-25 align-self-center mb-0 fw-bold">{count}/100</p>
-                    <button className="border-0 bg-transparent fs-4 text-success" onClick={increment}>
-                        <BsFillPatchPlusFill />
-                    </button>
-                    
-                    <button className="border-0 bg-transparent fs-4 text-danger" onClick={reset}>
-                        <BsArrowCounterclockwise />
-                    </button>
+        <>
+            {isFullscreen ? (
+                <div onClick={handleScreenClick}>
+                    <FullscreenCounterCard
+                        count={count}
+                        increment={increment}
+                        decrement={decrement}
+                        reset={reset}
+                        exitFullscreen={exitFullscreen}
+                    />
                 </div>
-            </div>
-        </div>
+            ) : (
+                <div className="card w-100">
+                    <div className="card-body">
+                        <h6 className="card-title d-flex justify-content-between">
+                            <span>Tasbeeh Counter</span>
+                            <span onClick={enterFullscreen}><MdFullscreen /></span>
+                        </h6>
+                        <div className="d-flex justify-content-between">
+                            <button className="border-0 bg-transparent fs-4 text-warning" onClick={decrement}>
+                                <BsFillPatchMinusFill />
+                            </button>
+                            <p className={`card-text w-25 align-self-center mb-0 fw-bold ${isAnimating ? 'animated-number' : ''}`}>
+                                {count}/100
+                            </p>
+                            <button className="border-0 bg-transparent fs-4 text-success" onClick={increment}>
+                                <BsFillPatchPlusFill />
+                            </button>
+                            <button className="border-0 bg-transparent fs-4 text-danger" onClick={reset}>
+                                <BsArrowCounterclockwise />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
 

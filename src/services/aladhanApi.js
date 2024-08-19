@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const getPrayerTimes = async (lat, lon) => {
     try {
-        const response = await axios.get('http://api.aladhan.com/v1/timings', {
+        const response = await axios.get('https://api.aladhan.com/v1/timings', {
             params: {
                 latitude: lat,
                 longitude: lon,
-                method: 2 // You can change the method as per your requirement
+                method: 6 // You can change the method as per your requirement
             }
         });
         
