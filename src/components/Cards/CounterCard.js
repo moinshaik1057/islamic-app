@@ -133,9 +133,13 @@ const CounterCard = () => {
                     <div className="card-body">
                         <h6 className="card-title d-flex justify-content-between">
                             <span>Tasbeeh Counter</span>
-                            <span onClick={enterFullscreen}><MdFullscreen /></span>
+                            {/* <span>Subhanallah</span> */}
+                            <span onClick={enterFullscreen} className='font-sm-3 btn btn-success btn-sm rounded-pill'>Full Screen <MdFullscreen /></span>
                         </h6>
                         <div className="d-flex justify-content-between">
+                            <button className="border-0 bg-transparent fs-4 text-danger" onClick={reset}>
+                                <BsArrowCounterclockwise />
+                            </button>
                             <button className="border-0 bg-transparent fs-4 text-warning" onClick={decrement}>
                                 <BsFillPatchMinusFill />
                             </button>
@@ -145,9 +149,7 @@ const CounterCard = () => {
                             <button className="border-0 bg-transparent fs-4 text-success" onClick={increment}>
                                 <BsFillPatchPlusFill />
                             </button>
-                            <button className="border-0 bg-transparent fs-4 text-danger" onClick={reset}>
-                                <BsArrowCounterclockwise />
-                            </button>
+                            
                         </div>
                     </div>
                 </div>

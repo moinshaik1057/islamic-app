@@ -40,6 +40,7 @@ const FullscreenCounterCard = ({ count, increment, decrement, reset, exitFullscr
     return (
         <div className="fullscreen-card">
             <div className="card-body text-center">
+                <h6>Click/Touch anywhere on the screen to start count</h6>
                 <h6 className="card-title d-flex justify-content-between">
                     <span>Tasbeeh Counter</span>
                     

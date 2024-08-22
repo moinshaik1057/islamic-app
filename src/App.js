@@ -24,6 +24,7 @@ const App = () => {
     return (
         <div className="container-fluid">
             <div className="row mt-3">
+                <div className='col-sm-4'></div>
                 <div className="col-sm-4">
                     <SearchCityCard />
                     <IslamicDateCard />

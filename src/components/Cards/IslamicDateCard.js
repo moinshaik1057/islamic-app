@@ -15,7 +15,8 @@ const IslamicDateCard = () => {
     const [showModal, setShowModal] = useState(false);
 
     const today = new Date();
-    const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
+    // const formattedDate = `${String(today.getDate()).padStart(2, '0')}-${String(today.getMonth() + 1).padStart(2, '0')}-${today.getFullYear()}`;
+    const formattedDate = `${today.getDate()} ${today.toLocaleString('en-US', { month: 'long' })} ${today.getFullYear()}`;
     const islamicDate = useSelector((state) => state.islamicDate.date);
     const islamicDateLoading = useSelector((state) => state.islamicDate.loading);
     const islamicDateError = useSelector((state) => state.islamicDate.error);
