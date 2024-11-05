@@ -1,48 +1,47 @@
+// App.js should NOT have a BrowserRouter or any other Router wrapping AppRoutes
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchWeather } from './redux/weatherSlice';
-import SearchCityCard from './components/Cards/SearchCityCard';
-import PrayerTimesCard from './components/Cards/PrayerTimesCard';
-import IslamicDateCard from './components/Cards/IslamicDateCard';
-import Galaxy from './components/Cards/Galaxy';
-//import MoonInfo from './components/Cards/MoonInfo';
-import CounterCard from './components/Cards/CounterCard.js';
-import MenuCard from './components/Cards/MenuCard.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchWeather } from './redux/weatherSlice.js';
+import { selectAuth } from './redux/authSlice.js';
 
+import Header from './components/Header.js';
+import AppRoutes from './routes.js'; // Your routes are here
+//import MenuCard from './components/Cards/MenuCard.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const App = () => {
     const dispatch = useDispatch();
+    const { isAuthenticated } = useSelector(selectAuth);
 
+ 
+    // Getting user's geo location
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const { latitude, longitude } = position.coords;
-            dispatch(fetchWeather({ lat: latitude, lon: longitude }));
-        });
-    }, [dispatch]);
+        if (isAuthenticated) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const { latitude, longitude } = position.coords;
+                dispatch(fetchWeather({ lat: latitude, lon: longitude }));
+            });
+        }
+    }, [dispatch, isAuthenticated]);
 
     return (
-        <div className="container-fluid">
-            <div className="row mt-3">
-                <div className='col-sm-4'></div>
-                <div className="col-sm-4">
-                    <SearchCityCard />
-                    <IslamicDateCard />
-                    <PrayerTimesCard /> 
-                    <Galaxy />
-                    <CounterCard /> 
-                    <MenuCard />
-                </div>
-                <div className="col-sm-4">
-
-                    
-                </div>
-                <div className="col-sm-4">
-                    
-                </div>
+        
+                <>
                 
-            </div>
-        </div>
+                    {isAuthenticated ? (
+                        <>
+                            <Header />
+                            <AppRoutes />  {/* Routes are defined here */}
+                            
+                        </>
+                    ) : (
+                        <AppRoutes />
+                    )}
+                
+                
+                    </>
     );
 };
 

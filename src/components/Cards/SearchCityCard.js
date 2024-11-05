@@ -183,7 +183,7 @@ const SearchCityCard = () => {
     };
 
     return (
-        <div className="card w-100 p-0 mb-2 mb-sm-1">
+        <div className="card w-100 p-0 my-2 mb-sm-1">
             <div className="card-body p-0">
                 <div className="search-container">
                     <span className="search-icon-right">&#128269;</span>

@@ -34,7 +34,7 @@ const Galaxy = () => {
     const { name: moonPhaseName, icon: moonPhaseIcon } = getMoonPhaseDetails(moon_phase);
 
     return (
-        <div className="card w-100 mb-1">
+        <div className="col-sm-3 rounded-0 mb-2 mb-sm-0 card align-self-strech">
             <div className="card-body">
                 <div className="row">
                     <div className="col-4">

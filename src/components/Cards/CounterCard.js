@@ -129,7 +129,7 @@ const CounterCard = () => {
                     />
                 </div>
             ) : (
-                <div className="card w-100">
+                <div className="col-sm-3 rounded-0 mb-2 mb-sm-0 card align-self-strech">
                     <div className="card-body">
                         <h6 className="card-title d-flex justify-content-between">
                             <span>Tasbeeh Counter</span>

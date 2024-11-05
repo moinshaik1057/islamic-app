@@ -1,0 +1,68 @@
+src
+├── App.js
+├── assets
+│   ├── icons
+│   │   └── logo.svg
+│   ├── images
+│   └── moon-phases
+│       ├── default-moon.png
+│       ├── first-quarter.png
+│       ├── full-moon.png
+│       ├── full-moon1.png
+│       ├── last-quarter.png
+│       ├── new-moon.png
+│       ├── new-moon1.png
+│       ├── waning-crescent.png
+│       ├── waning-gibbous.png
+│       ├── waxing-crescent.png
+│       └── waxing-gibbous.png
+├── components
+│   ├── Cards
+│   │   ├── Card3.js
+│   │   ├── CounterCard.js
+│   │   ├── FullscreenCounterCard.js
+│   │   ├── Galaxy.js
+│   │   ├── IslamicDateCard.js
+│   │   ├── MenuCard.js
+│   │   ├── MoonInfo.js
+│   │   ├── PrayerTimesCard.js
+│   │   ├── SearchCityCard.js
+│   │   └── WeatherCard.js
+│   ├── Footer.js
+│   ├── Header.js
+│   └── IslamicStoreNotification.js
+├── index.js
+├── pages
+│   ├── Article.js
+│   ├── AyatEIlahiya.js
+│   ├── Blog.js
+│   ├── Home.js
+│   ├── IslamicQuiz.js
+│   ├── MominKaHathyar.js
+│   ├── NamesOfAllah.js
+│   └── Quran.js
+├── redux
+│   ├── islamicDateSlice.js
+│   ├── prayerSlice.js
+│   ├── qiblaSlice.js
+│   ├── store.js
+│   └── weatherSlice.js
+├── reportWebVitals.js
+├── routes.js
+├── services
+│   ├── aladhanApi.js
+│   ├── api.js
+│   ├── geolocationApi.js
+│   ├── hadithApi.js
+│   ├── nominatimApi.js
+│   ├── qiblaApi.js
+│   └── weatherApi.js
+├── styles
+│   ├── App.css
+│   └── index.css
+└── utils
+    ├── dateUtils.js
+    ├── moonPhases.js
+    ├── prayerUtils.js
+    ├── qiblaUtils.js
+    └── weatherUtils.js

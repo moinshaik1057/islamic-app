@@ -4,6 +4,7 @@ import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
 
 const PrayerTimesCard = () => {
+    const weather = useSelector((state) => state.weather);
     const dispatch = useDispatch();
     const [location, setLocation] = useState({ lat: null, lon: null });
 
@@ -89,7 +90,7 @@ const PrayerTimesCard = () => {
     if (loading || islamicDateLoading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (islamicDateError) return <div>Error: {islamicDateError}</div>;
-    console.log(prayerTimes);
+    //console.log(prayerTimes);
     //console.log(ishraaqTime);
     return (
         <>
@@ -103,9 +104,9 @@ const PrayerTimesCard = () => {
                     
                 </div>)} */}
             
-            <div className="card w-100 p-0 mb-1">
-            {/* <h5 className="card-title">Prayer Times {cityName}</h5> */}
-            
+            <div className="col card rounded-0 mb-2 mb-sm-0 align-self-strech">
+            <h6 className="card-title text-center mb-0 mt-2">Salaah Times of {weather.cityName} </h6>
+                    
                 
                 {prayerTimes ? (
                 <div className="table-responsive rounded p-1">
@@ -152,14 +153,14 @@ const PrayerTimesCard = () => {
                                 <td>{magribTime}</td>
                                 <td>{convertToAMPM(prayerTimes.Isha)}</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td colSpan='6' className='text-success bg-success-subtle text-decoration-underline font-sm-1 fw-bold'>
                                 The Tahajjud time will start 1 hour after Isha and end 30 minutes before Fajr.
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
-            </div>
+                </div>
                     
                 ) : (
                     <p className='text-center mt-1'>Prayer times not available.</p>
