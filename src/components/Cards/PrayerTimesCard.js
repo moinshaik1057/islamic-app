@@ -152,11 +152,11 @@ const PrayerTimesCard = () => {
                                 <td>{magribTime}</td>
                                 <td>{convertToAMPM(prayerTimes.Isha)}</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td colSpan='6' className='text-success bg-success-subtle text-decoration-underline font-sm-1 fw-bold'>
                                 The Tahajjud time will start 1 hour after Isha and end 30 minutes before Fajr.
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
             </div>

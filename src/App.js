@@ -8,6 +8,7 @@ import Galaxy from './components/Cards/Galaxy';
 //import MoonInfo from './components/Cards/MoonInfo';
 import CounterCard from './components/Cards/CounterCard.js';
 import MenuCard from './components/Cards/MenuCard.js';
+import Header from './components/Header.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,6 +23,8 @@ const App = () => {
     }, [dispatch]);
 
     return (
+        <>
+        <Header />
         <div className="container-fluid">
             <div className="row mt-3">
                 <div className='col-sm-4'></div>
@@ -31,7 +34,7 @@ const App = () => {
                     <PrayerTimesCard /> 
                     <Galaxy />
                     <CounterCard /> 
-                    <MenuCard />
+                   
                 </div>
                 <div className="col-sm-4">
 
@@ -42,7 +45,7 @@ const App = () => {
                 </div>
                 
             </div>
-        </div>
+        </div></>
     );
 };
 
