@@ -71,8 +71,8 @@ const PrayerTimesCard = () => {
             const magribFormatted = convertToAMPM(newMagribTime);
     
             // Set the formatted Ishraaq time in the state
-            setIshraaqTime(ishraaqFormatted);
-            setChaasthTime(chaasthFormatted);
+            setIshraaqTime(ishraaq);
+            setChaasthTime(chaasth);
             setMagribTime(magribFormatted);
         }
     }, [prayerTimes]);
@@ -108,9 +108,46 @@ const PrayerTimesCard = () => {
             
                 
                 {prayerTimes ? (
-                <div className="table-responsive rounded p-1">
+                <div className="table-responsive rounded p-1 ps-3">
+                <table class="table table-sm table-borderless  rounded-2 mb-0 text-cente font-sm">
+    <tbody>
+        <tr class="fw-semibold">
+            <th>Sunrise</th>
+            <td>{prayerTimes.Sunrise}</td>
+            <th>Fazr</th>
+            <td>{prayerTimes.Fajr}</td>
+        </tr>
+        <tr class="fw-semibold">
+            <th>Ishraaq</th>
+            <td>{ishraaqTime}</td>
+            <th>Zohr</th>
+            <td>{prayerTimes.Dhuhr}</td>
+        </tr>
+        <tr class="fw-semibold">
+            <th>Chaasth</th>
+            <td>{chaasthTime}</td>
+            <th>Asr</th>
+            <td>{prayerTimes.Asr}</td>
+        </tr>
+        <tr class="fw-semibold">
+            <th>Sunset</th>
+            <td>{prayerTimes.Sunset}</td>
+            <th>Maghrib</th>
+            <td>{prayerTimes.Maghrib}</td>
+        </tr>
+        <tr class="fw-semibold">
+            <th>Awwabeen</th>
+            <td>{prayerTimes.Awwabeen}</td>
+            <th>Isha</th>
+            <td>{prayerTimes.Isha}</td>
+        </tr>
 
-                    <table className='table table-sm table-borderless table-secondar rounded-2 mb-0 text-center font-sm'>
+    </tbody>
+</table>
+
+
+
+                    <table className='table d-none table-sm table-borderless table-secondar rounded-2 mb-0 text-center font-sm'>
                         <thead>
                             <tr>
                                 {/* <th className='bg-warning'>Tahajjud</th>
@@ -130,8 +167,8 @@ const PrayerTimesCard = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <hr className='mb-2' />
-                    <table className="table table-sm table-borderless table-secondar rounded-2 mb-0 text-center font-sm">
+                    {/* <hr className='mb-2' /> */}
+                    <table className="table d-none table-sm table-borderless table-secondar rounded-2 mb-0 text-center font-sm">
                     
                         <thead className='bg-secondary'>
                             <tr>

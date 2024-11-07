@@ -16,15 +16,15 @@ const Home = () => {
     <>
     <div className='container-fluid'>
     <div className='row'>
-    <div className='col-4'></div>
-    <div className='col-4'>
+    <div className='col-sm-4'></div>
+    <div className='col-sm-4'>
         <SearchCityCard />
         <IslamicDateCard />
         <PrayerTimesCard /> 
         <Galaxy />
         <CounterCard /> 
     </div>
-    <div className='col-4'></div></div>
+    <div className='col-sm-4'></div></div>
     </div>
     </>
   );

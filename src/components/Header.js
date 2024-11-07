@@ -1,14 +1,16 @@
-// 
-
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Icon from '../assets/icons/nabawimosque.png';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/islamic-app">Islamic App</a>
+        <Link to="/islamic-app" className='navbar-brand'>
+        <img src={Icon} className='img-fluid' alt='app icon' width={30} height={30} />
+         &nbsp; Islamic App
+        </Link>
+        {/* <a className="navbar-brand" href="/islamic-app">Islamic App</a> */}
         <button
           className="navbar-toggler"
           type="button"

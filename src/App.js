@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { fetchWeather } from './redux/weatherSlice';
 import Header from './components/Header.js';
+import Footer from './components/Footer.js';
 import AppRoutes from './routes.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,7 @@ const App = () => {
         <BrowserRouter>
             <Header />
             <AppRoutes />
+            <Footer />
         </BrowserRouter>
     );
 };
