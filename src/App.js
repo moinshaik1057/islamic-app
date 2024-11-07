@@ -24,7 +24,7 @@ const App = () => {
 
     return (
         <>
-        <Header />
+        
         <div className="container-fluid">
             <div className="row mt-3">
                 <div className='col-sm-4'></div>
