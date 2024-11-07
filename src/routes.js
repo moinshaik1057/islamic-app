@@ -32,7 +32,7 @@ import NamesOfAllah from './pages/NamesOfAllah';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/islamic-app" element={<Home />} />
       <Route path="/quran" element={<Quran />} />
       <Route path="/names-of-allah" element={<NamesOfAllah />} />
       {/* Add other routes as needed */}
