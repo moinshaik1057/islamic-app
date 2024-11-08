@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer>
-      <p className='text-center mb-0'>&copy; 2024 Islamic App</p>
+      <p className='text-center mb-0'>Copyright &copy; 2024 Islamic App</p>
     </footer>
   );
 };

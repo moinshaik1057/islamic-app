@@ -23,24 +23,24 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/islamic-app">Home</Link>
+              <Link className="nav-link" to="/islamic-app"><i class="bi bi-house-fill"></i> Home</Link>
+            </li>
+            {/* <li className="nav-item">
+              <Link className="nav-link" to="/quran"><i class="bi bi-book-fill"></i> Quran</Link>
+            </li> */}
+            <li className="nav-item">
+              <Link className="nav-link" to="/qibla"><i class="bi bi-compass-fill"></i> Qibla</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/quran">Quran</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/qibla">Qibla</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/calendar">Calendar</Link>
+              <Link className="nav-link" to="/calendar"><i class="bi bi-calendar-day-fill"></i> Calendar</Link>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          {/* <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button className="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          </form> */}
         </div>
       </div>
     </nav>

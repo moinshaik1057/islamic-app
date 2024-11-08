@@ -167,3 +167,33 @@ footer {
   display: inline-block;
   animation: counterIncrease 0.3s ease-out;
 }
+
+/* Base styling */
+.round-button {
+  background-color: green;
+  color: white;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Hover state */
+.round-button:hover {
+  background-color: darkgreen;
+}
+
+/* Focus state */
+.round-button:focus {
+  outline: 2px solid lime;
+  outline-offset: 4px;
+}
+
+/* Active state */
+.round-button:active {
+  background-color: forestgreen;
+  transform: scale(0.95); /* Creates a slight "press" effect */
+}

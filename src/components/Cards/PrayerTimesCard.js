@@ -66,8 +66,8 @@ const PrayerTimesCard = () => {
             const newMagribTime = `${magribHours}:${magribMinutes}`;
     
             // Convert to AM/PM format
-            const ishraaqFormatted = convertToAMPM(ishraaq);
-            const chaasthFormatted = convertToAMPM(chaasth);
+            //const ishraaqFormatted = convertToAMPM(ishraaq);
+            //const chaasthFormatted = convertToAMPM(chaasth);
             const magribFormatted = convertToAMPM(newMagribTime);
     
             // Set the formatted Ishraaq time in the state
@@ -114,7 +114,7 @@ const PrayerTimesCard = () => {
         <tr class="fw-semibold">
             <th>Sunrise</th>
             <td>{prayerTimes.Sunrise}</td>
-            <th>Fazr</th>
+            <th>Fajr</th>
             <td>{prayerTimes.Fajr}</td>
         </tr>
         <tr class="fw-semibold">
@@ -137,7 +137,7 @@ const PrayerTimesCard = () => {
         </tr>
         <tr class="fw-semibold">
             <th>Awwabeen</th>
-            <td>{prayerTimes.Awwabeen}</td>
+            <td>{prayerTimes.Maghrib}</td>
             <th>Isha</th>
             <td>{prayerTimes.Isha}</td>
         </tr>
