@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
-import { MdLocationPin } from "react-icons/md";
+//import { MdLocationPin } from "react-icons/md";
 //import { FaCalendarDays } from "react-icons/fa6";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 const IslamicDateCard = () => {
-    const weather = useSelector((state) => state.weather);
+    //const weather = useSelector((state) => state.weather);
     const dispatch = useDispatch();
     const [location, setLocation] = useState({ lat: null, lon: null });
     const [geoError, setGeoError] = useState(null);
@@ -66,9 +66,8 @@ const IslamicDateCard = () => {
             {geoError && <div className="alert alert-warning">{geoError}</div>}
             {islamicDate && (
                 <div className='d-flex justify-content-between fw-semibold'>
-                    <div className='d-flex'><div className='align-self-center'></div> <span className='d-inline-block pt-1 ms-1'> {islamicDate.day} {islamicDate.month.en} {islamicDate.year} </span></div>
-                    <div className='d-flex'><div className='align-self-center'><MdLocationPin /></div> <span className='d-inline-block pt-1 ms-1'> {weather.cityName} </span></div>
-                    <div className='d-flex'><div className='align-self-center'></div> <span className='d-inline-block pt-1 ms-1'> {formattedDate} </span></div>
+                    <span className='d-inline-block pt-1 ms-1'> {formattedDate} </span> <span className='d-inline-block pt-1 mx-2'>/</span> <span className='d-inline-block pt-1 ms-1'> {islamicDate.day} {islamicDate.month.en} {islamicDate.year} </span>
+                    
                 </div>
             )}
             <Modal show={showModal} onHide={handleModalClose}>

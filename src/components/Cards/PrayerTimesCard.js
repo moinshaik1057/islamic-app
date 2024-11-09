@@ -10,7 +10,7 @@ const PrayerTimesCard = () => {
     const prayerTimes = useSelector((state) => state.prayer.data);
     const loading = useSelector((state) => state.prayer.loading);
     const error = useSelector((state) => state.prayer.error);
-    //const cityName = useSelector((state) => state.weather.cityName);
+    const cityName = useSelector((state) => state.weather.cityName);
     const [ishraaqTime, setIshraaqTime] = useState(null);
     const [chaasthTime, setChaasthTime] = useState(null);
     const [magribTime, setMagribTime] = useState(null);
@@ -104,7 +104,7 @@ const PrayerTimesCard = () => {
                 </div>)} */}
             
             <div className="card w-100 p-0 mb-1">
-            {/* <h5 className="card-title">Prayer Times {cityName}</h5> */}
+                <h5 className="card-title ps-3 pt-3">{cityName}</h5>
             
                 
                 {prayerTimes ? (

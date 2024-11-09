@@ -59,7 +59,7 @@ const QuranReader = () => {
   };
   console.log(quranPages);
   return (
-    <div className="quran-reader-container">
+    <div className="quran-reader-container container">
     
       {quranPages.length > 0 ? (
         <HTMLFlipBook
