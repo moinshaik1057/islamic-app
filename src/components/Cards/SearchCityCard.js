@@ -205,6 +205,7 @@ const SearchCityCard = () => {
                                 key={suggestion.id}
                                 className="list-group-item"
                                 onClick={() => handleSelectSuggestion(suggestion)}
+                                id="searchCity"
                             >
                                 {suggestion.place_name}
                             </li>
