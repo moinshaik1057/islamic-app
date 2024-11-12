@@ -98,6 +98,9 @@ import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import sun from '../../assets/images/sun.gif';
+import moon from '../../assets/images/night.gif';
+
 
 const IslamicDateCard = () => {
     const dispatch = useDispatch();
@@ -143,6 +146,7 @@ const IslamicDateCard = () => {
     }, [location, dispatch]);
 
     const handleModalClose = () => setShowModal(false);
+        if (islamicDateError) return <div>Error fetching Islamic date: {islamicDateError}</div>;
 
     return (
         <div className="card p-2 rounded-1 w-100 mb-1" style={{ fontSize: 12 }}>
@@ -159,9 +163,10 @@ const IslamicDateCard = () => {
             ) : (
                 islamicDate && (
                     <div className='d-flex justify-content-between fw-semibold'>
-                        <span className='d-inline-block pt-1 ms-1'> {formattedDate} </span> 
+                        <span className='d-inline-block pt-1 ms-1'> <img src={moon} alt='sun' width={25} height={25} /> {islamicDate.day} {islamicDate.month.en} {islamicDate.year} </span>
                         <span className='d-inline-block pt-1 mx-2'>/</span> 
-                        <span className='d-inline-block pt-1 ms-1'> {islamicDate.day} {islamicDate.month.en} {islamicDate.year} </span>
+                        <span className='d-inline-block pt-1 ms-1'> <img src={sun} alt='sun' width={30} height={30} /> {formattedDate} </span> 
+                        
                     </div>
                 )
             )}

@@ -58,6 +58,8 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../assets/icons/nabawimosque.png';
+import Logo from '../assets/images/IslamicLogo.png';
+import Moon from '../assets/images/8251620.jpg';
 
 const Header = () => {
   const offcanvasRef = useRef(null);
@@ -83,7 +85,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
       <div className="container">
         <Link to="/islamic-app" className="navbar-brand">
           <img src={Icon} className="img-fluid" alt="app icon" width={30} height={30} />

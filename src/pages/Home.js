@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <>
-    <div className='container-fluid'>
+    <div className='container-fluid mt-6'>
     <div className='row'>
     <div className='col-sm-4'></div>
     <div className='col-sm-4'>

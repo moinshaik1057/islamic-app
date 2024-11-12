@@ -30,14 +30,14 @@ header a {
   text-decoration: none;
 }
 
-footer {
+/* footer {
   background-color: #282c34;
   padding: 10px;
   color: white;
   position: fixed;
   width: 100%;
   bottom: 0;
-}
+} */
 
 .cards-container {
   display: flex;
@@ -196,4 +196,8 @@ footer {
 .round-button:active {
   background-color: forestgreen;
   transform: scale(0.95); /* Creates a slight "press" effect */
+}
+
+.mt-6 {
+  margin-top: 6rem !important;
 }
