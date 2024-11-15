@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/islamic-app/static/css/main.8a0c64f7.css",
-    "main.js": "/islamic-app/static/js/main.2c358cce.js",
+    "main.css": "/islamic-app/static/css/main.dffba28c.css",
+    "main.js": "/islamic-app/static/js/main.b67ef923.js",
     "static/media/calendar.gif": "/islamic-app/static/media/calendar.6e31803396e7ea7eb3b4.gif",
     "static/media/sun.gif": "/islamic-app/static/media/sun.4c13977162a8399f0cea.gif",
     "static/media/night.gif": "/islamic-app/static/media/night.9400cb8711f78f036cb4.gif",
@@ -12,11 +12,11 @@
     "static/media/IslamicLogo.png": "/islamic-app/static/media/IslamicLogo.ee7aff9e33547e14d41f.png",
     "static/media/nabawimosque.png": "/islamic-app/static/media/nabawimosque.908dc7df070323d8673d.png",
     "index.html": "/islamic-app/index.html",
-    "main.8a0c64f7.css.map": "/islamic-app/static/css/main.8a0c64f7.css.map",
-    "main.2c358cce.js.map": "/islamic-app/static/js/main.2c358cce.js.map"
+    "main.dffba28c.css.map": "/islamic-app/static/css/main.dffba28c.css.map",
+    "main.b67ef923.js.map": "/islamic-app/static/js/main.b67ef923.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a0c64f7.css",
-    "static/js/main.2c358cce.js"
+    "static/css/main.dffba28c.css",
+    "static/js/main.b67ef923.js"
   ]
 }
