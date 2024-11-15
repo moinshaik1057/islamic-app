@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TermsOfService = () => {
   return (
@@ -9,7 +10,7 @@ const TermsOfService = () => {
       <section>
         <h2>1. Introduction</h2>
         <p>
-          Welcome to [App Name] (“we,” “us,” or “our”). By using our application, 
+          Welcome to Islam Hub (“we,” “us,” or “our”). By using our application, 
           you agree to abide by these Terms of Service, which outline the rules 
           and expectations for using the app and accessing its content. This app 
           is designed to offer users access to Salaah timings, Islamic dates, 
@@ -21,7 +22,7 @@ const TermsOfService = () => {
       <section>
         <h2>2. Acceptance of Terms</h2>
         <p>
-          By downloading, accessing, or using [App Name], you agree to these Terms of Service. 
+          By downloading, accessing, or using Islam Hub, you agree to these Terms of Service. 
           If you do not agree, please refrain from using the app. We reserve the right to update 
           or modify these Terms at any time, and continued use of the app after such changes 
           indicates your acceptance.
@@ -49,8 +50,8 @@ const TermsOfService = () => {
       <section>
         <h2>4. Intellectual Property</h2>
         <p>
-          All content on [App Name], including text, graphics, logos, and icons, is the property 
-          of [Your Company Name] or its content suppliers and is protected by applicable intellectual 
+          All content on Islam Hub, including text, graphics, logos, and icons, is the property 
+          of Islam Hub or its content suppliers and is protected by applicable intellectual 
           property laws. Users may not reproduce, modify, or distribute any of this content 
           without our written permission.
         </p>
@@ -59,8 +60,7 @@ const TermsOfService = () => {
       <section>
         <h2>5. Privacy and Data Collection</h2>
         <p>
-          Your privacy is important to us. Please refer to our <a href="/privacy-policy">Privacy Policy</a> 
-          for details on the information we collect, how we use it, and how we protect it. 
+          Your privacy is important to us. Please refer to our <Link to="/privacy">Privacy Policy</Link> for details on the information we collect, how we use it, and how we protect it. 
           By using this app, you consent to the collection and use of your information as outlined 
           in the Privacy Policy.
         </p>
@@ -68,7 +68,7 @@ const TermsOfService = () => {
       
       <section>
         <h2>6. Prohibited Activities</h2>
-        <p>The following actions are prohibited on [App Name]:</p>
+        <p>The following actions are prohibited on Islam Hub:</p>
         <ul>
           <li>Engaging in fraudulent, abusive, or illegal activity.</li>
           <li>Accessing or attempting to access other users' accounts without authorization.</li>
@@ -80,7 +80,7 @@ const TermsOfService = () => {
         <h2>7. Third-Party Services and Links</h2>
         <p>
           This app may include links to or integrate third-party services, such as mapping or weather 
-          services, to enhance functionality. [App Name] is not responsible for the practices or 
+          services, to enhance functionality. Islam Hub is not responsible for the practices or 
           policies of third-party services, and you should review their terms and privacy policies 
           independently.
         </p>
@@ -89,7 +89,7 @@ const TermsOfService = () => {
       <section>
         <h2>8. Limitation of Liability</h2>
         <p>
-          [App Name] is provided “as-is,” and we do not guarantee uninterrupted service or 
+          Islam Hub is provided “as-is,” and we do not guarantee uninterrupted service or 
           error-free functionality. We disclaim any liability for any damages, data loss, 
           or issues arising from using this app, including inaccuracies in information related 
           to prayer times, Qibla direction, or other religious data.
@@ -99,9 +99,7 @@ const TermsOfService = () => {
       <section>
         <h2>9. Governing Law and Jurisdiction</h2>
         <p>
-          These Terms are governed by the laws of [Country or Region]. Any disputes arising from 
-          these terms or the use of the app shall be subject to the exclusive jurisdiction of 
-          the courts in [Country or Region].
+        These Terms are governed by the laws of India. For users in the European Union, we comply with GDPR regulations. Any disputes shall be subject to the exclusive jurisdiction of the courts in India.
         </p>
       </section>
       
@@ -116,8 +114,7 @@ const TermsOfService = () => {
       <section className='mb-5'>
         <h2>11. Contact Us</h2>
         <p>
-          For questions or feedback about these Terms of Service, please contact us at 
-          [Your Contact Information].
+          For questions or feedback about these Terms of Service, please contact us at <a href="mailto:isalamhub@gmail.com">isalamhub@gmail.com</a>.
         </p>
       </section>
       

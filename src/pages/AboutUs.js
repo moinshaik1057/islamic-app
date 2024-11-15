@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const AboutUs = () => {
   return (
-    <div className='container mt-5'>
-    <h1>&nbsp;</h1>
+    <div className='container mt-5-half'>
+    {/* <h1>&nbsp;</h1> */}
       <h1>About Us</h1>
       
       <section>
         <h2>Our Mission</h2>
         <p>
-          Welcome to Islam Hub Our mission is to offer a reliable and user-friendly platform 
-          to support the spiritual and daily needs of Muslims worldwide. We believe in making 
-          Islamic information and tools accessible to all, helping individuals maintain their 
-          religious practices and stay connected to their faith.
+        Welcome to Islam Hub! Our mission is to offer a reliable and user-friendly platform to support the spiritual and daily needs of Muslims worldwide. We believe in making Islamic information and tools accessible to all, helping individuals maintain their religious practices and stay connected to their faith. This app has been thoughtfully designed under the guidance of <strong>Moulana Mufti Amanullah Khan Qasmi</strong>, an esteemed alumnus of Darul Uloom Deoband, ensuring authenticity and adherence to Islamic principles.
         </p>
       </section>
       
@@ -55,7 +53,7 @@ const AboutUs = () => {
         </p>
       </section>
       
-      <section className='mb-5'>
+      <section className='mb-6'>
         <h2>Get in Touch</h2>
         <p>
           We’d love to hear from you! Whether you have <Link to="/feedback">questions, feedback, or suggestions</Link>, feel
@@ -63,6 +61,9 @@ const AboutUs = () => {
           to stay updated on new features and improvements.
         </p>
       </section>
+      
+        <Footer />
+      
     </div>
   );
 };

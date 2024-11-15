@@ -276,24 +276,24 @@ const PrayerTimesCard = () => {
                         <table className="table table-sm table-borderless rounded-2 mb-0">
                             <tbody>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                             </tbody>
                         </table>
