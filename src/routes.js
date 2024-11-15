@@ -29,7 +29,11 @@ import Quran from './pages/Quran';
 import Qibla from './pages/Qibla';
 import Calendar from './pages/Calendar';
 import NamesOfAllah from './pages/NamesOfAllah';
-import FeedbackForm from './components/Form';
+import FeedbackPage from './pages/FeedbackPage';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
 // Import other pages as needed
 
 const AppRoutes = () => {
@@ -39,7 +43,12 @@ const AppRoutes = () => {
       <Route path="/quran" element={<Quran />} />
       <Route path="/qibla" element={<Qibla />} />
       <Route path="/calendar" element={<Calendar />} />
-      <Route path="/feedback" element={<FeedbackForm />} />
+      <Route path="/feedback" element={<FeedbackPage />} />
+      {/* Footer Routes */}
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/terms" element={<TermsOfService />} />
+      <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/names-of-allah" element={<NamesOfAllah />} />
       {/* Add other routes as needed */}
     </Routes>

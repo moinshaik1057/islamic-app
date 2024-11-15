@@ -89,7 +89,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="container mt-6">
+    <div className="container">
       <form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm bg-light">
         <h4 className="mb-3">Feedback Form</h4>
         <div className="mb-3">

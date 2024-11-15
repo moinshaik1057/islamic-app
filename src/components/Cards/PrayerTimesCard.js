@@ -222,16 +222,17 @@ const PrayerTimesCard = () => {
     
             setIshraaqTime(ishraaq);
             setChaasthTime(chaasth);
-            setMagribTime(convertToAMPM(magribTime));
+            // setMagribTime(convertToAMPM(magribTime));
+            setMagribTime(magribTime);
         }
     }, [prayerTimes]);
 
-    const convertToAMPM = (time) => {
-        const [hours, minutes] = time.split(':').map(Number);
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        const convertedHours = hours % 12 || 12;
-        return `${convertedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
-    };
+    // const convertToAMPM = (time) => {
+    //     const [hours, minutes] = time.split(':').map(Number);
+    //     const ampm = hours >= 12 ? 'PM' : 'AM';
+    //     const convertedHours = hours % 12 || 12;
+    //     return `${convertedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+    // };
 
     // Placeholder display when loading
     if (loading || islamicDateLoading) {
@@ -239,7 +240,7 @@ const PrayerTimesCard = () => {
             <div className="card w-100 mb-1">
                 <h5 className="card-title ps-3 pt-3">
                     <div className="placeholder-glow">
-                        <div className="placeholder col-6"></div>
+                        <div className="placeholder col-6 rounded"></div>
                     </div>
                 </h5>
 
@@ -248,24 +249,24 @@ const PrayerTimesCard = () => {
                         <table className="table table-sm table-borderless rounded-2 mb-0">
                             <tbody>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                                 <tr className="fw-semibold">
-                                    <th><div className="placeholder col-6"></div></th>
-                                    <td><div className="placeholder col-6"></div></td>
+                                    <th><div className="placeholder col-6 rounded"></div></th>
+                                    <td><div className="placeholder col-6 rounded"></div></td>
                                 </tr>
                             </tbody>
                         </table>

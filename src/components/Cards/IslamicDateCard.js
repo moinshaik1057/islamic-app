@@ -164,7 +164,7 @@ const IslamicDateCard = () => {
                 islamicDate && (
                     <div className='d-flex justify-content-between fw-semibold'>
                         <span className='d-inline-block pt-1 ms-1'> <img src={moon} alt='sun' width={25} height={25} /> {islamicDate.day} {islamicDate.month.en} {islamicDate.year} </span>
-                        <span className='d-inline-block pt-1 mx-2'>/</span> 
+                        <span className='d-inline-block pt-1 mx-2 fs-6 text-secondary'>/</span> 
                         <span className='d-inline-block pt-1 ms-1'> <img src={sun} alt='sun' width={30} height={30} /> {formattedDate} </span> 
                         
                     </div>
