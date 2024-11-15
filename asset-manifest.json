@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/islamic-app/static/css/main.dffba28c.css",
-    "main.js": "/islamic-app/static/js/main.b67ef923.js",
+    "main.css": "/islamic-app/static/css/main.7df81e61.css",
+    "main.js": "/islamic-app/static/js/main.ecaf86f0.js",
     "static/media/calendar.gif": "/islamic-app/static/media/calendar.6e31803396e7ea7eb3b4.gif",
     "static/media/sun.gif": "/islamic-app/static/media/sun.4c13977162a8399f0cea.gif",
     "static/media/night.gif": "/islamic-app/static/media/night.9400cb8711f78f036cb4.gif",
     "static/media/bootstrap-icons.woff?": "/islamic-app/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
-    "static/media/8251620.jpg": "/islamic-app/static/media/8251620.83de5121d40613898616.jpg",
     "static/media/bootstrap-icons.woff2?": "/islamic-app/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
     "static/media/qibla.png": "/islamic-app/static/media/qibla.396fec5cba11d03b2f35.png",
-    "static/media/IslamicLogo.png": "/islamic-app/static/media/IslamicLogo.ee7aff9e33547e14d41f.png",
     "static/media/nabawimosque.png": "/islamic-app/static/media/nabawimosque.908dc7df070323d8673d.png",
     "index.html": "/islamic-app/index.html",
-    "main.dffba28c.css.map": "/islamic-app/static/css/main.dffba28c.css.map",
-    "main.b67ef923.js.map": "/islamic-app/static/js/main.b67ef923.js.map"
+    "main.7df81e61.css.map": "/islamic-app/static/css/main.7df81e61.css.map",
+    "main.ecaf86f0.js.map": "/islamic-app/static/js/main.ecaf86f0.js.map"
   },
   "entrypoints": [
-    "static/css/main.dffba28c.css",
-    "static/js/main.b67ef923.js"
+    "static/css/main.7df81e61.css",
+    "static/js/main.ecaf86f0.js"
   ]
 }
