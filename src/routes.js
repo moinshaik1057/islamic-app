@@ -28,7 +28,7 @@ import Home from './pages/Home';
 import Quran from './pages/Quran';
 import Qibla from './pages/Qibla';
 import Calendar from './pages/Calendar';
-import NamesOfAllah from './pages/NamesOfAllah';
+//import NamesOfAllah from './pages/NamesOfAllah';
 import FeedbackPage from './pages/FeedbackPage';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -49,7 +49,7 @@ const AppRoutes = () => {
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/terms" element={<TermsOfService />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
-      <Route path="/names-of-allah" element={<NamesOfAllah />} />
+      {/* <Route path="/names-of-allah" element={<NamesOfAllah />} /> */}
       {/* Add other routes as needed */}
     </Routes>
   );

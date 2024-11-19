@@ -7,39 +7,39 @@
 //     <>
     
 
-//     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-//   <div class="container">
+//     <nav className="navbar navbar-expand-lg bg-body-tertiary">
+//   <div className="container">
 //     <Link to="/islamic-app" className='navbar-brand'>
 //         <img src={Icon} className='img-fluid' alt='app icon' width={30} height={30} />
 //          &nbsp; Islamic App
 //         </Link>
-//     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-//       <span class="navbar-toggler-icon"></span>
+//     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+//       <span className="navbar-toggler-icon"></span>
 //     </button>
-//     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-//       <div class="offcanvas-header">
+//     <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+//       <div className="offcanvas-header">
 //       <Link to="/islamic-app" className='navbar-brand'>
 //         <img src={Icon} className='img-fluid' alt='app icon' width={30} height={30} />
 //          &nbsp; Islamic App
 //         </Link>
-//         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+//         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 //       </div>
-//       <div class="offcanvas-body">
+//       <div className="offcanvas-body">
 //       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 //             <li className="nav-item">
-//               <Link className="nav-link active" to="/islamic-app"><i class="bi bi-house-fill"></i> Home</Link>
+//               <Link className="nav-link active" to="/islamic-app"><i className="bi bi-house-fill"></i> Home</Link>
 //             </li>
 //             <li className="nav-item">
-//               <Link className="nav-link" to="/feedback"><i class="bi bi-chat-right-dots-fill"></i> Feedback</Link>
+//               <Link className="nav-link" to="/feedback"><i className="bi bi-chat-right-dots-fill"></i> Feedback</Link>
 //             </li>
 //             <li className="nav-item">
-//               <Link className="nav-link" to="/quran"><i class="bi bi-book-fill"></i> Quran</Link>
+//               <Link className="nav-link" to="/quran"><i className="bi bi-book-fill"></i> Quran</Link>
 //             </li>
 //             <li className="nav-item">
-//               <Link className="nav-link" to="/qibla"><i class="bi bi-compass-fill"></i> Qibla</Link>
+//               <Link className="nav-link" to="/qibla"><i className="bi bi-compass-fill"></i> Qibla</Link>
 //             </li>
 //             <li className="nav-item">
-//               <Link className="nav-link" to="/calendar"><i class="bi bi-calendar-day-fill"></i> Calendar</Link>
+//               <Link className="nav-link" to="/calendar"><i className="bi bi-calendar-day-fill"></i> Calendar</Link>
 //             </li>
 //           </ul>
         
@@ -209,7 +209,7 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm">
       <div className="container">
-        <Link to="/islamic-app" className="navbar-brand">
+        <Link to="/islamic-app" className="navbar-brand d-none">
           <img src={Icon} className="img-fluid" alt="app icon" width={30} height={30} />
           &nbsp; Islam Hub
         </Link>
@@ -254,11 +254,11 @@ const Header = () => {
                   <i className="bi bi-chat-right-dots-fill"></i> Feedback
                 </Link>
               </li> */}
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/qibla" onClick={handleLinkClick}>
                   <i className="bi bi-compass-fill"></i> Qibla
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/calendar" onClick={handleLinkClick}>
                   <i className="bi bi-calendar-day-fill"></i> Calendar
@@ -266,12 +266,12 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about" onClick={handleLinkClick}>
-                <i class="bi bi-info-circle-fill"></i> About Us
+                <i className="bi bi-info-circle-fill"></i> About Us
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/contact" onClick={handleLinkClick}>
-                <i class="bi bi-chat-right-text-fill"></i> Contact Us
+                <i className="bi bi-chat-right-text-fill"></i> Contact Us
                 </Link>
               </li>
             </ul>

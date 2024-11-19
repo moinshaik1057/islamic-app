@@ -1,0 +1,29 @@
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .calendar th,
+  .calendar td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .calendar th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .calendar td {
+    height: 80px;
+  }
+  
+  .calendar td div {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+
+  
