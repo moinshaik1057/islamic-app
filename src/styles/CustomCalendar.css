@@ -5,12 +5,12 @@
   }
   
   .gregorian-date {
-    font-size: 13px;
+    font-size: 10px;
     font-weight: bold;
   }
   
   .hijri-date {
-    font-size: 10px;
+    font-size: 14px;
     color: #666;
   }
 
@@ -18,7 +18,7 @@
     font-family: 'Noto Serif', serif;
     background-color: #CCC4BA;
     /* background-image: url('../assets/images/Calendar_bg.png'); */
-    background-image: radial-gradient(green, yellow);
+    background-image: radial-gradient(rgb(155, 232, 155), rgb(212, 212, 173));
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -48,7 +48,7 @@
   margin: 5px 0 0;
 } */
 
-/* Gradient Styles for Each Month */
+/* Gradient Styles for Each Month 
 .january {
   background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
@@ -96,7 +96,7 @@
 .december {
   background: linear-gradient(135deg, #ff5858, #f09819);
 }
-
+*/
 /* Today Button Styling */
 .today-button-container {
   text-align: right;
@@ -104,7 +104,7 @@
   margin-right: 15px;
 }
 
-.today-button-container button {
+/* .today-button-container button {
   background: #007bff;
   color: white;
   border: none;
@@ -113,7 +113,7 @@
   font-size: 16px;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
-}
+} */
 
 .today-button-container button:hover {
   background: #0056b3;
@@ -126,9 +126,14 @@
   background-color: #56ab2f !important;
   border-radius: 50%;
 }
+
+.react-calendar__tile > abbr {
+  visibility: hidden; /* Hide the default date */
+}
 .react-calendar__tile--active .hijri-date {
   color: white;
 }
+
 
 
   

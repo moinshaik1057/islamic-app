@@ -97,6 +97,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPrayerTimes } from '../../redux/prayerSlice';
 import { fetchIslamicDate } from '../../redux/islamicDateSlice';
 import Modal from 'react-bootstrap/Modal';
+//import { Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import sun from '../../assets/images/sun.gif';
 import moon from '../../assets/images/night.gif';

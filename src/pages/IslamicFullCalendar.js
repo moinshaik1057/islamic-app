@@ -591,14 +591,33 @@ const IslamicFullCalendar = () => {
   };
 
   // Render Hijri date in the calendar tile
+  // const renderTileContent = ({ date, view }) => {
+  //   if (view === "month") {
+  //     const dayOfMonth = date.getDate(); // Day of the month (1-31)
+  //     const hijriDate = hijriData[dayOfMonth - 1]; // Get corresponding Hijri date
+
+  //     return hijriDate ? (
+  //       <div className="tile-content">
+  //         <span className="hijri-date">{hijriDate.hijri.day}</span>
+  //       </div>
+  //     ) : (
+  //       <span className="gregorian-date">{date.getDate()}</span>
+  //     );
+  //   }
+  //   return null;
+  // };
+
   const renderTileContent = ({ date, view }) => {
     if (view === "month") {
       const dayOfMonth = date.getDate(); // Day of the month (1-31)
       const hijriDate = hijriData[dayOfMonth - 1]; // Get corresponding Hijri date
-
+  
       return hijriDate ? (
         <div className="tile-content">
+          {/* Hijri date on top */}
           <span className="hijri-date">{hijriDate.hijri.day}</span>
+          {/* Gregorian date below */}
+          <span className="gregorian-date">{date.getDate()}</span>
         </div>
       ) : (
         <span className="gregorian-date">{date.getDate()}</span>
@@ -606,6 +625,18 @@ const IslamicFullCalendar = () => {
     }
     return null;
   };
+
+  // Check if two dates are the same (ignoring time)
+  const isSameDay = (date1, date2) => {
+    return (
+      date1.getDate() === date2.getDate() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getFullYear() === date2.getFullYear()
+    );
+  };
+
+  // Check if the "Today" button should be active
+  const isTodayButtonDisabled = isSameDay(currentDate, new Date());
 
   return (
     <div className="position-absolute start-50 top-50 translate-middle">
@@ -615,14 +646,15 @@ const IslamicFullCalendar = () => {
         <div className="">
           {/* "Today" Button */}
           <div className="today-button-container mb-3">
-            <button onClick={handleTodayClick} className="btn btn-success btn-sm">
-              Today
-            </button>
+            
           </div>
 
           {/* Calendar Header */}
           <div className={`calendar-header p-3 rounded rounded-bottom-0 ${headerClass}`}>
+            <div className="d-flex justify-content-between">
             {hijriMonth && <h4>{hijriMonth} {hijriYear}</h4>}
+            <button onClick={handleTodayClick} className="btn btn-sm btn-success" disabled={isTodayButtonDisabled}>Today</button>
+            </div>
             <h5>{currentDate.toLocaleString("default", { month: "long", year: "numeric" })}</h5>
              
           </div>
