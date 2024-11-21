@@ -99,8 +99,9 @@
 
 /* Today Button Styling */
 .today-button-container {
-  text-align: center;
+  text-align: right;
   margin-top: 10px;
+  margin-right: 15px;
 }
 
 .today-button-container button {
@@ -120,6 +121,13 @@
 
 .today-button-container button:active {
   background: #003f7f;
+}
+.react-calendar__tile--active {
+  background-color: #56ab2f !important;
+  border-radius: 50%;
+}
+.react-calendar__tile--active .hijri-date {
+  color: white;
 }
 
 

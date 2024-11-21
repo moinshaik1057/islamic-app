@@ -536,6 +536,7 @@ const IslamicFullCalendar = () => {
   // =====================
   const [hijriData, setHijriData] = useState([]);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [activeStartDate, setActiveStartDate] = useState(new Date());
   const [hijriMonth, setHijriMonth] = useState("");
   const [hijriYear, setHijriYear] = useState("");
   const [error, setError] = useState(null);
@@ -547,12 +548,12 @@ const IslamicFullCalendar = () => {
   // Fetch Hijri calendar data
   useEffect(() => {
     const fetchHijriCalendar = async () => {
-      const month = currentDate.getMonth() + 1; // Current Gregorian month
+      const month = currentDate.getMonth() + 2; // Current Gregorian month
       const year = currentDate.getFullYear(); // Current Gregorian year
 
       try {
         const response = await axios.get(
-          `https://api.aladhan.com/v1/gToHCalendar/${month}/${year}`
+          `https://api.aladhan.com/v1/gToHCalendar/${month}/${year}?adjustment=-1`
         );
         const data = response.data.data;
 
@@ -561,6 +562,8 @@ const IslamicFullCalendar = () => {
 
         // Set Hijri month name (use the first date in the response to determine the month)
         if (data.length > 0) {
+          const hhmonth = data[0].hijri.month;
+          console.log(hhmonth);
           setHijriMonth(data[0].hijri.month.en); // English name of the Hijri month
           setHijriYear(data[0].hijri.year); // Year of the Hijri
 
@@ -576,12 +579,15 @@ const IslamicFullCalendar = () => {
 
   // Handle month/year change
   const handleActiveDateChange = ({ activeStartDate }) => {
+    setActiveStartDate(activeStartDate);
     setCurrentDate(activeStartDate);
   };
 
   // Reset to today's date
   const handleTodayClick = () => {
-    setCurrentDate(new Date());
+    const today = new Date();
+    setCurrentDate(today);
+    setActiveStartDate(today); // Reset the calendar's view to today's month
   };
 
   // Render Hijri date in the calendar tile
@@ -607,6 +613,13 @@ const IslamicFullCalendar = () => {
         <p>{error}</p>
       ) : (
         <div className="">
+          {/* "Today" Button */}
+          <div className="today-button-container mb-3">
+            <button onClick={handleTodayClick} className="btn btn-success btn-sm">
+              Today
+            </button>
+          </div>
+
           {/* Calendar Header */}
           <div className={`calendar-header p-3 rounded rounded-bottom-0 ${headerClass}`}>
             {hijriMonth && <h4>{hijriMonth} {hijriYear}</h4>}
@@ -616,16 +629,16 @@ const IslamicFullCalendar = () => {
 
           {/* Calendar Component */}
           <Calendar
+            // onActiveStartDateChange={handleActiveDateChange}
+            // tileContent={renderTileContent}
+            
+            value={currentDate}
             onActiveStartDateChange={handleActiveDateChange}
+            activeStartDate={activeStartDate}
             tileContent={renderTileContent}
           />
 
-          {/* "Today" Button */}
-          <div className="today-button-container" style={{ marginTop: "10px", textAlign: "center" }}>
-            <button onClick={handleTodayClick} style={{ padding: "5px 15px", fontSize: "16px" }}>
-              Today
-            </button>
-          </div>
+          
         </div>
       )}
     </div>
